@@ -1,0 +1,62 @@
+*
+{
+
+}
+
+.home
+{
+    height: 100vh;
+    background-color: "https://images.unsplash.com/photo-1509042239860-f550ce710b93?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1887&q=80";
+
+}
+
+.home_title
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 125px;
+    font-weight: bolder;
+    font-family: cursive;
+}
+
+section
+{
+    height: 100vh;
+    color: saddlebrown;
+}
+
+.nav
+{
+    position: sticky;
+}
+
+
+
+.fa .fa-align-center
+{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.carousel
+{
+    width: auto!important;
+    margin:auto ;
+    max-width: none !important;
+    height: 100vh;
+}
+
+.carousel-item img
+{
+    height: 100vh;
+        filter: brightness(70%);
+    width:auto;
+}
+
+.carousel-fade
+{
+    animation-direction: normal;
+    animation: forwards 1s ease-in-out;
+}
