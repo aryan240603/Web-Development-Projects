@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <!-- <link type="text/css" href="../public/styles.css" rel="stylesheet" > -->
+    <link type="text/css" href="/styles.css" rel="stylesheet" >
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+
+    <body class = 'home_body'>
+      
+      <!-- Navbar -->
+      
+      <nav class="navbar fixed-top navbar-expand-lg bg-body-tertiary" data-bs-theme="dark">
+        <div class="container container-fluid">
+          <a class="navbar-brand" >Your Travel Buddy</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation" >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav">
+              <a class="nav-link active" aria-current="page" href="#1">Home</a>
+              <a class="nav-link active" href="#2">Weather</a>
+              <a class="nav-link active" href="#3">Restaurants</a>
+              <a class="nav-link active" href = "#4">Images</a>
+            </div>
+          </div>
+        </div>
+      </nav>
+
+
+<!-- Home Section -->
+    <section id = "1">
+<div id = "home">
+  <div class = "home_hero" >
+    <h1 class = "hero_title " style="font-size:5vw;" >Welcome to Your Travel Buddy!</h1>
+    <p style="font-size:3vw; color:#767676;">Find your next adventure with us.</p>
+    <p style = "font-size: 4vw; color:darkslategray"><%= locals.cityName %>,<%=locals.countryCode%></p>
+    <p style = "font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; font-size: 3vw;">latitude = <%= locals.lat %>, Longitude = <%= locals.lon %></p>
+
+    <form action="/" method="get">
+   <div class = "redirect_button">
+  <button class="btn btn-dark">Search for another city</button>
+</div>
+  </form>
+  </div>
+</div>
+</section>
+
+<section id = "2" class="vh-50">
+
+  <div class="container py-5 h-100" >
+
+    <div class="row d-flex justify-content-center align-items-center h-100">
+      <div class="col-md-8 col-lg-6 col-xl-4">
+
+        <div class="card" style="color: #caf0f8; border-radius: 35px; background-color: #1b263b;">
+          <div class="card-body p-4">
+
+            <div class="d-flex">
+              <h6 class="flex-grow-1"><%= locals.cityName %>, <%= locals.countryCode %></h6>
+            </div>
+
+            <div class="d-flex flex-column text-center mt-5 mb-4">
+              <h6 class="display-4 mb-0 font-weight-bold" ><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-thermometer-half" viewBox="0 0 16 16">
+                <path d="M9.5 12.5a1.5 1.5 0 1 1-2-1.415V6.5a.5.5 0 0 1 1 0v4.585a1.5 1.5 0 0 1 1 1.415"/>
+                <path d="M5.5 2.5a2.5 2.5 0 0 1 5 0v7.55a3.5 3.5 0 1 1-5 0zM8 1a1.5 1.5 0 0 0-1.5 1.5v7.987l-.167.15a2.5 2.5 0 1 0 3.333 0l-.166-.15V2.5A1.5 1.5 0 0 0 8 1"/>
+              </svg> <%= locals.temp %>&deg;C </h6>
+              <span class="small" style="color: #868B94"><%= locals.descr %></span>
+            </div>
+
+            <div class="d-flex align-items-center">
+              <div class="flex-grow-1" style="font-size: 1rem;">
+                <div><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-wind" viewBox="0 0 16 16">
+                  <path d="M12.5 2A2.5 2.5 0 0 0 10 4.5a.5.5 0 0 1-1 0A3.5 3.5 0 1 1 12.5 8H.5a.5.5 0 0 1 0-1h12a2.5 2.5 0 0 0 0-5m-7 1a1 1 0 0 0-1 1 .5.5 0 0 1-1 0 2 2 0 1 1 2 2h-5a.5.5 0 0 1 0-1h5a1 1 0 0 0 0-2M0 9.5A.5.5 0 0 1 .5 9h10.042a3 3 0 1 1-3 3 .5.5 0 0 1 1 0 2 2 0 1 0 2-2H.5a.5.5 0 0 1-.5-.5"/>
+                </svg> <span class="ms-1"> <%= locals.windSpeed %> km/h in <%= locals.windDirection %>
+                  </span></div>
+                <div><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-clouds-fill" viewBox="0 0 16 16">
+                  <path d="M11.473 9a4.5 4.5 0 0 0-8.72-.99A3 3 0 0 0 3 14h8.5a2.5 2.5 0 1 0-.027-5"/>
+                  <path d="M14.544 9.772a3.506 3.506 0 0 0-2.225-1.676 5.502 5.502 0 0 0-6.337-4.002 4.002 4.002 0 0 1 7.392.91 2.5 2.5 0 0 1 1.17 4.769z"/>
+                </svg> <span class="ms-1"> Clouds: <%= locals.cloudCoverage  %> %</span>
+                </div>
+                <div> <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-snow2" viewBox="0 0 16 16">
+                  <path d="M8 16a.5.5 0 0 1-.5-.5v-1.293l-.646.647a.5.5 0 0 1-.707-.708L7.5 12.793v-1.086l-.646.647a.5.5 0 0 1-.707-.708L7.5 10.293V8.866l-1.236.713-.495 1.85a.5.5 0 1 1-.966-.26l.237-.882-.94.542-.496 1.85a.5.5 0 1 1-.966-.26l.237-.882-1.12.646a.5.5 0 0 1-.5-.866l1.12-.646-.884-.237a.5.5 0 1 1 .26-.966l1.848.495.94-.542-.882-.237a.5.5 0 1 1 .258-.966l1.85.495L7 8l-1.236-.713-1.849.495a.5.5 0 1 1-.258-.966l.883-.237-.94-.542-1.85.495a.5.5 0 0 1-.258-.966l.883-.237-1.12-.646a.5.5 0 1 1 .5-.866l1.12.646-.237-.883a.5.5 0 0 1 .966-.258l.495 1.849.94.542-.236-.883a.5.5 0 0 1 .966-.258l.495 1.849 1.236.713V5.707L6.147 4.354a.5.5 0 1 1 .707-.708l.646.647V3.207L6.147 1.854a.5.5 0 1 1 .707-.708l.646.647V.5a.5.5 0 0 1 1 0v1.293l.647-.647a.5.5 0 1 1 .707.708L8.5 3.207v1.086l.647-.647a.5.5 0 1 1 .707.708L8.5 5.707v1.427l1.236-.713.495-1.85a.5.5 0 1 1 .966.26l-.236.882.94-.542.495-1.85a.5.5 0 1 1 .966.26l-.236.882 1.12-.646a.5.5 0 0 1 .5.866l-1.12.646.883.237a.5.5 0 1 1-.26.966l-1.848-.495-.94.542.883.237a.5.5 0 1 1-.26.966l-1.848-.495L9 8l1.236.713 1.849-.495a.5.5 0 0 1 .259.966l-.883.237.94.542 1.849-.495a.5.5 0 0 1 .259.966l-.883.237 1.12.646a.5.5 0 0 1-.5.866l-1.12-.646.236.883a.5.5 0 1 1-.966.258l-.495-1.849-.94-.542.236.883a.5.5 0 0 1-.966.258L9.736 9.58 8.5 8.866v1.427l1.354 1.353a.5.5 0 0 1-.707.708l-.647-.647v1.086l1.354 1.353a.5.5 0 0 1-.707.708l-.647-.647V15.5a.5.5 0 0 1-.5.5z"/>
+                </svg><span class="ms-1"> Snow(accumulation): <%= locals.snowAccumulation %>mm </span>
+                </div>
+                <div> <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-brightness-high-fill" viewBox="0 0 16 16">
+                  <path d="M12 8a4 4 0 1 1-8 0 4 4 0 0 1 8 0M8 0a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 0m0 13a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 13m8-5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2a.5.5 0 0 1 .5.5M3 8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2A.5.5 0 0 1 3 8m10.657-5.657a.5.5 0 0 1 0 .707l-1.414 1.415a.5.5 0 1 1-.707-.708l1.414-1.414a.5.5 0 0 1 .707 0m-9.193 9.193a.5.5 0 0 1 0 .707L3.05 13.657a.5.5 0 0 1-.707-.707l1.414-1.414a.5.5 0 0 1 .707 0zm9.193 2.121a.5.5 0 0 1-.707 0l-1.414-1.414a.5.5 0 0 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .707M4.464 4.465a.5.5 0 0 1-.707 0L2.343 3.05a.5.5 0 1 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .708z"/>
+                </svg><span class="ms-1"> UV Index: <%= locals.UVIndex %></span>
+                </div>
+                <div><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-eye" viewBox="0 0 16 16">
+                  <path d="M16 8s-3-5.5-8-5.5S0 8 0 8s3 5.5 8 5.5S16 8 16 8M1.173 8a13.133 13.133 0 0 1 1.66-2.043C4.12 4.668 5.88 3.5 8 3.5c2.12 0 3.879 1.168 5.168 2.457A13.133 13.133 0 0 1 14.828 8c-.058.087-.122.183-.195.288-.335.48-.83 1.12-1.465 1.755C11.879 11.332 10.119 12.5 8 12.5c-2.12 0-3.879-1.168-5.168-2.457A13.134 13.134 0 0 1 1.172 8z"/>
+                  <path d="M8 5.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5M4.5 8a3.5 3.5 0 1 1 7 0 3.5 3.5 0 0 1-7 0"/>
+                </svg><span class="ms-1"> Visibility: <%= locals.visibilityValue %> KM</span>
+                </div>
+                <div><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-moisture" viewBox="0 0 16 16">
+                  <path d="M13.5 0a.5.5 0 0 0 0 1H15v2.75h-.5a.5.5 0 0 0 0 1h.5V7.5h-1.5a.5.5 0 0 0 0 1H15v2.75h-.5a.5.5 0 0 0 0 1h.5V15h-1.5a.5.5 0 0 0 0 1h2a.5.5 0 0 0 .5-.5V.5a.5.5 0 0 0-.5-.5zM7 1.5l.364-.343a.5.5 0 0 0-.728 0l-.002.002-.006.007-.022.023-.08.088a28.458 28.458 0 0 0-1.274 1.517c-.769.983-1.714 2.325-2.385 3.727C2.368 7.564 2 8.682 2 9.733 2 12.614 4.212 15 7 15s5-2.386 5-5.267c0-1.05-.368-2.169-.867-3.212-.671-1.402-1.616-2.744-2.385-3.727a28.458 28.458 0 0 0-1.354-1.605l-.022-.023-.006-.007-.002-.001zm0 0-.364-.343zm-.016.766L7 2.247l.016.019c.24.274.572.667.944 1.144.611.781 1.32 1.776 1.901 2.827H4.14c.58-1.051 1.29-2.046 1.9-2.827.373-.477.706-.87.945-1.144zM3 9.733c0-.755.244-1.612.638-2.496h6.724c.395.884.638 1.741.638 2.496C11 12.117 9.182 14 7 14s-4-1.883-4-4.267"/>
+                </svg><span class="ms-1"> Humidity: <%= locals.humidityValue %>%</span>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- Restaurants -->
+<section id = 3>
+      <div  id = "restaurants" class = "tabcontent">
+ <h1>  <p class = "section_title">Some of the <%= locals.cityName %>'s Best Restaurants!</p></h1>
+       <ol>
+           <% if(locals.restaurants = true) %>
+          <div class = "restaurants_cards">
+
+           <div class="card" style="width: 18rem;">
+            <div class="card-body">
+              <h5 class="card-title"><%= locals.rest1Name %></h5>
+              <h6 class="card-subtitle mb-2 text-body-secondary"><%= locals.rest1Address %></h6>
+              <p class="card-text">Ratings: <%= locals.rest1Ratings %></p>
+              <p class="card-text">Price: <%= locals.rest1Price %> </p>
+            </div>
+          </div>
+
+          <div class="card" style="width: 18rem;">
+            <div class="card-body">
+              <h5 class="card-title"><%= locals.rest2Name %></h5>
+              <h6 class="card-subtitle mb-2 text-body-secondary"><%= locals.rest2Address %></h6>
+              <p class="card-text">Ratings: <%= locals.rest2Ratings %></p>
+              <p class="card-text">Price: <%= locals.rest2Price %> </p>
+            </div>
+          </div>
+
+          <div class="card" style="width: 18rem;">
+            <div class="card-body">
+              <h5 class="card-title"><%= locals.rest3Name %></h5>
+              <h6 class="card-subtitle mb-2 text-body-secondary"><%= locals.rest3Address %></h6>
+              <p class="card-text">Ratings: <%= locals.rest3Ratings %></p>
+              <p class="card-text">Price: <%= locals.rest3Price %> </p>
+            </div>
+          </div>
+
+          <div class="card" style="width: 18rem;">
+            <div class="card-body">
+              <h5 class="card-title"><%= locals.rest4Name %></h5>
+              <h6 class="card-subtitle mb-2 text-body-secondary"><%= locals.rest4Address %></h6>
+              <p class="card-text">Ratings: <%= locals.rest4Ratings %></p>
+              <p class="card-text">Price: <%= locals.rest4Price %> </p>
+            </div>
+          </div>
+
+          <div class="card" style="width: 18rem;">
+            <div class="card-body">
+              <h5 class="card-title"><%= locals.rest5Name %></h5>
+              <h6 class="card-subtitle mb-2 text-body-secondary"><%= locals.rest5Address %></h6>
+              <p class="card-text">Ratings: <%= locals.rest5Ratings %></p>
+              <p class="card-text">Price: <%= locals.rest5Price %> </p>
+            </div>
+          </div>
+
+        </div>
+        <div style=" display: flex;  justify-content: center; justify-items: center;">
+<p>Price Level:
+  <ul>
+    <li>
+      0 Not Mentioned
+    </li>
+    <li>
+      1 Inexpensive
+</li>
+    <li>
+      2 Moderate
+      </li>
+    <li>
+      3 Expensive
+</li>
+<li>
+      4 Very Expensive
+</li>
+  </ul>
+
+</p>
+</div>
+          
+
+  </div>
+</section>
+
+<!-- Images -->
+
+<Section id="4" class="image">
+  <div id = "images" class = "tabcontent">
+
+   <h1><p class="section_title">A glimpse of the location: </p></h1> 
+
+
+  <div id="carouselExampleAutoplaying" class="carousel slide carousel-fade" data-bs-ride="carousel">
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <img src="<%= locals.img1 %>" class=" w-100" alt="<%= locals.cityName %> images">
+      </div>
+      <div class="carousel-item">
+        <img src="<%= locals.img2 %>" class=" w-100" alt="<%= locals.cityName %> images">
+      </div>
+      <div class="carousel-item">
+        <img src="<%= locals.img3 %>" class="d-block w-100" alt="<%= locals.cityName %> images">
+      </div>
+      <div class="carousel-item">
+        <img src="<%= locals.img4 %>" class="d-block w-100" alt="<%= locals.cityName %> images">
+      </div>
+      <div class="carousel-item">
+        <img src="<%= locals.img5 %>" class="d-block w-100" alt="<%= locals.cityName %> images">
+      </div>
+      <div class="carousel-item">
+        <img src="<%= locals.img6 %>" class="d-block w-100" alt="<%= locals.cityName %> images">
+      </div>
+      <div class="carousel-item">
+        <img src="<%= locals.img7 %>" class="d-block w-100" alt="<%= locals.cityName %> images">
+      </div>
+      <div class="carousel-item">
+        <img src="<%= locals.img8 %>" class="d-block w-100" alt="<%= locals.cityName %> images">
+      </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
+
+
+
+         </Section>
+
+    <footer>Aryan Patel &copy; 2023</footer>
+
+  </div>
+
+
+
+</body>
+</html>
+

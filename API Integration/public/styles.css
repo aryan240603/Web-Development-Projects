@@ -1,0 +1,239 @@
+#form_container
+{
+    text-align: center;
+    justify-content: center;
+    justify-items: center;
+    word-wrap: normal;
+    flex-wrap: wrap;
+    align-content: center;
+    background-color: #1d2d44;
+    color: #f0ebd8;
+    margin: 40vh 40vh 40vh 40vh;
+    border-radius: 40px;
+}
+
+
+.col-auto input
+{
+    margin: 10px 10px 10px 10px;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    display: flex !important;
+    width: 50%;
+    font-size: 2em;
+    align-items: center;
+    margin-inline-start: 25%;
+}
+
+.col-auto
+{
+    text-align: center;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+    font-size:large;
+
+
+}
+
+.col-auto .col-form-label
+{
+    font-size: larger;
+}
+
+.col-auto .form-text
+{
+    color: #f0ebd8;
+}
+
+.container .navbar .navbar-expand-lg .bg-body-tertiary .container-fluid .navbar-brand
+{
+    position:absolute;
+    align-items: center;
+    text-align: center;
+    color:#F4DFC8;
+
+}
+
+div .container-fluid
+
+{
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    align-content: center;
+    background-color: #0d1321;
+    height: 10vh;
+    border-radius: 10px;
+}
+
+div .container-fluid .navbar-brand
+{
+    color: #F4DFC8; 
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    align-content: center;
+    margin-left: 43%;
+    font-size: x-large;
+    position:absolute;
+
+
+}
+
+a .navbar-brand
+{    background-color: #1d2d44;
+    height: 100%;
+}
+
+.main-body
+{
+    background-color: #FAF6F0;
+    background-size:50%;
+}
+
+section
+{
+    height: 100vh;
+    display: flex;
+    justify-content: space-around;
+    padding: 5% 7%;
+    animation: section_change 3s ease-in reverse;
+
+}
+
+div #navbarNavAltMarkup
+{
+    justify-content: end;
+}
+
+div #navbarNavAltMarkup .navbar-nav
+{
+    align-content: space-between;
+    justify-content: space-between;
+}
+
+div #navbarNavAltMarkup .navbar-nav .nav-link 
+{
+    margin-inline: 40px;
+}
+
+div .restaurants_cards
+{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    justify-items: center;
+    align-items: center;
+    position:static;
+    margin: 20px;
+}
+
+div .restaurants_cards .card
+{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    flex-grow: initial;
+    justify-items: center;
+    align-items: center;
+    position:static;
+    margin: 20px;
+    background-color: #1b263b;
+    color: #f0ebd8;
+}
+
+div .restaurants_cards .card .card-subtitle
+{
+    color: #f5ebe0 !important;
+}
+
+div .redirect_button
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 5%;
+    margin-bottom: 10%;
+    margin-left: 10%;
+    margin-right: 10%;
+    justify-content: center;
+    color: #f0ebd8;
+}
+
+div .home_hero 
+{
+    display:block;
+    justify-content: center;
+    align-items: center;
+}
+
+div .home_hero p
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 5%;
+
+} 
+
+div .home_hero h1 
+{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 5%;
+}
+
+div .weather_details
+{
+    font-size: large;
+}
+
+div .weather_details ul li
+{
+    display: flex;
+    margin: 20px;
+}
+
+body
+{
+    background-color: #FAF6F0;
+}
+
+footer
+{
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    height: 50px;
+    width: 80%;
+    align-items: center;
+    margin: 0% 10% 0% 10%; 
+    flex-wrap: wrap;
+    background-color: #F4DFC8;
+}
+
+.section_title
+{
+    font-weight:400px;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0% 10% 0% 10%;
+
+}
+
+.carousel {
+    width:640px;
+    height:360px;
+  }
+
+.container .navbar .navbar-expand-lg .bg-body-tertiary .container-fluid
+{
+    background-color: #1b263b;
+    height: 5%;
+}
+  

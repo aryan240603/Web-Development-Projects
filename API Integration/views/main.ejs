@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Travel Buddy-An API Project</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link  type="text/css" href="/styles.css"  rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+</head>
+<body class = 'main-body'>
+
+    <div>
+        <div class="container">
+            <nav class="navbar navbar-expand-lg bg-body-tertiary">
+              <div class="container-fluid">
+                <a class="navbar-brand">Your Travel Buddy</a>
+              </div>
+            </nav>
+          </div>
+    </div>
+    
+    <div id = "form_container" class = 'main'>
+<form action="/home" method = "post">
+
+    <div class="col-auto">
+      <label class="col-form-label">City Name   </label>
+    </div>
+    <div class="col-auto">
+      <input type="text" id="inputPassword6" class="form-control" aria-describedby="passwordHelpInline" name = 'city_name' value="Halifax">
+    </div>
+    <div class="col-auto">
+      <span id="passwordHelpInline" class="form-text">Enter the name of city here</span>
+    </div>
+
+    <div class="col-auto">
+      <label class="col-form-label">Country Code</label>
+    </div>
+    <div class="col-auto">
+      <input type="text" id="inputPassword6" class="form-control" aria-describedby="passwordHelpInline" name = 'country_code' value = "CA">
+    </div>
+    <div class="col-auto">
+      <span id="passwordHelpInline" class="form-text">Enter the Country Code here</span>
+      <p>Note: Please refer to the country code   <a href="https://www.countrycode.org/">here</a> and enter a valid code(2 digit). <br> Example: for Canada => CA</p>
+
+    </div>
+
+<p>Please choose when would you like to travel.</p>
+<div class="dropdown">
+  <select name="Items" id="abc" >
+    <ul class = "dropdown-menu dropdown-menu-dark">
+      <li><option class="dropdown-item btn btn-secondary dropdown-toggle"  data-bs-toggle="dropdown" value="day1" name = "day1" >Today</option></li>
+      <li><option class="dropdown-item" value="day2" name = "day2">Tommorow</option></li>
+      <li><option class="dropdown-item" value="day3" name = "day3">After a day</option></li>
+      <li><option class="dropdown-item" value="day4" name = "day4">After 2 days</option></li>
+      <li><option class="dropdown-item" value="day5" name = "day5">After 3 days</option></li>
+      <li><option class="dropdown-item" value="day6" name = "day6">After 4 days</option></li>
+      <li><option class="dropdown-item" value="day7" name = "day7">After 5 days</option></li>
+    </ul>
+  </select>
+</div>
+
+<button type="submit" class="btn btn-outline-light" length = '100px'>Submit</button>
+<p>Instructions: Please note that this project is just for the practice of integrating and working with APIs and will have access to the limited information. <br>
+For more info, visit <a href="https://github.com/aryan240603">My Github account</a></p>
+</div>
+    
+</body>
+</html>

@@ -1,0 +1,215 @@
+import express from 'express';
+import bodyParser from 'body-parser';
+import axios from 'axios';
+import path from 'path';
+
+
+
+// *********************Variables*********************
+const app = express();
+const port = 3000;
+const __dirname = path.resolve();
+
+
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(express.static(path.join(__dirname, "/public")));
+// *****************************API Links**************************************
+const GEOLOCATION_API_URL = 'http://api.openweathermap.org/geo/1.0/direct?';
+  
+
+// ********************************Main Code*************************************
+
+app.get("/", (req, res) => 
+{
+    try {
+        res.render("main.ejs");
+        } catch (error) {
+        res.status(404);
+        console.log("Error! DO something");
+    }
+})
+
+
+app.post("/home" , async (req, res) => 
+{
+    try {
+        console.log('Value entered');
+        var value = req.body;
+        // *****************************************City Name*********************************************
+        // var CityName = JSON.parse(value.city_name);
+        var CityName = value.city_name;
+        var cntryCode = value.country_code;
+        console.log(CityName);
+        var final_city_name = CityName.replace(' ', '+');
+        console.log(final_city_name);
+        
+        //*************************************Geolocation and Coordinates********************************
+        const url = await axios.get( GEOLOCATION_API_URL  + `q=${final_city_name},${cntryCode}&limit=3&appid=6ce5ec7baebafcaedc6969156a891db3`);
+        const finalName = url.data[0].name;
+        const latitude = url.data[0].lat;
+        const longitude = url.data[0].lon;
+        const country = url.data[0].country;
+        //*******************************************Weather Details**************************************
+        const WEATHER_API_URL = 'https://api.weatherbit.io/v2.0/forecast/daily?'
+        const weather_url = await axios.get(WEATHER_API_URL + `&lat=${latitude}&lon=${longitude}&key=45c3584949ab4ead8f2af26fd473f41b`);
+    
+        var day = req.body.Items;
+        var counter;    
+        switch(day)
+        {
+            case 'day2':
+                counter = 1;
+                break;
+            case 'day3':
+                counter = 2;
+                break;
+            case 'day4':
+                    counter = 3;
+                    break;
+            case 'day5':
+                counter = 4;
+                break;
+            case 'day6':
+                counter = 5;
+                break;
+            case 'day7': 
+                 counter = 6;
+                 break;
+            default :
+                 counter = 0;
+                 break;
+            
+        }
+    
+        const description = weather_url.data.data[counter].weather.description;
+        const temperature = weather_url.data.data[counter].temp;
+        const min_temperature = weather_url.data.data[counter].min_temp;
+        const max_temperature = weather_url.data.data[counter].max_temp;
+        const snow_accumulation = weather_url.data.data[counter].snow;
+        const visibility = weather_url.data.data[counter].vis;
+        const wind_speed = weather_url.data.data[counter].wind_spd;
+        const wind_direction = weather_url.data.data[counter].wind_cdir_full;
+        const humidity = weather_url.data.data[counter].rh;
+        const uv_index = weather_url.data.data[counter].uv;
+        const clouds = weather_url.data.data[counter].clouds;
+        //console.log(req.body.city_name);
+
+        const GOOGLE_MAPS_API = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?"
+        const maps_restaurants_url = await axios.get(GOOGLE_MAPS_API + `keyword=restaurants&location=${latitude}%2C${longitude}&radius=3000&type=restaurant&key=AIzaSyA2NvzOx8H6Y5weqYf0f8-rI_RaKmMFL84&opennow=true&photo?maxwidth=400&photo_reference=photo_reference`);
+    
+        const rest1 = maps_restaurants_url.data.results[0];
+        const rest2 = maps_restaurants_url.data.results[1];
+        const rest3 = maps_restaurants_url.data.results[2];
+        const rest4 = maps_restaurants_url.data.results[3];
+        const rest5 = maps_restaurants_url.data.results[4];
+        console.log(rest1.vicinity);
+    
+        // -----------------------Restaurant 1-------------------------
+    
+        const rest1_name = rest1.name;
+        const rest1_address = rest1.vicinity;
+        const rest1_ratings = rest1.rating;
+        const rest1_price = rest1.price_level;
+    
+        // -----------------------Restaurant 2-------------------------
+        const rest2_name = rest2.name;
+        const rest2_address = rest2.vicinity;
+        const rest2_ratings = rest2.rating;
+        const rest2_price = rest2.price_level;
+    
+    
+        // -----------------------Restaurant 3-------------------------
+        const rest3_name = rest3.name;
+        const rest3_address = rest3.vicinity;
+        const rest3_ratings = rest3.rating;
+        const rest3_price = rest3.price_level;
+    
+    
+        // -----------------------Restaurant 4-------------------------
+        const rest4_name = rest4.name;
+        const rest4_address = rest4.vicinity;
+        const rest4_ratings = rest4.rating;
+        const rest4_price = rest4.price_level;
+    
+    
+        // -----------------------Restaurant 5-------------------------
+        const rest5_name = rest5.name;
+        const rest5_address = rest5.vicinity;
+        const rest5_ratings = rest5.rating;
+        const rest5_price = rest5.price_level;
+
+        
+
+        
+
+        const PIXABAY_API_URL = 'https://pixabay.com/api/?'
+        const pix_url = await axios.get(PIXABAY_API_URL + `key=40275110-e475209ba835bd4fabd2a0c4f&q=${finalName}&image_type=photo&pretty=true`);21
+        const image1 = pix_url.data.hits[0].webformatURL;
+        const image2 = pix_url.data.hits[1].webformatURL;
+        const image3 = pix_url.data.hits[2].webformatURL;
+        const image4 = pix_url.data.hits[3].webformatURL;
+        const image5 = pix_url.data.hits[4].webformatURL;
+        const image6 = pix_url.data.hits[5].webformatURL;
+        const image7 = pix_url.data.hits[6].webformatURL;
+        const image8 = pix_url.data.hits[7].webformatURL;
+
+
+    
+        res.render("Home.ejs", { 
+            cityName: finalName, 
+            lat : latitude, 
+            lon: longitude, 
+            countryCode : country,
+            descr : description,
+            temp : temperature,
+            minTemp : min_temperature,
+            maxTemp : max_temperature,
+            snowAccumulation : snow_accumulation,
+            visibilityValue : visibility,
+            windSpeed : wind_speed,
+            windDirection : wind_direction,
+            humidityValue : humidity,
+            UVIndex : uv_index,
+            cloudCoverage : clouds,
+            rest1Name: rest1_name,
+            rest1Ratings: rest1_ratings,
+            rest1Price: rest1_price,
+            rest1Address: rest1_address,
+            rest2Name: rest2_name,
+            rest2Ratings: rest2_ratings,
+            rest2Price: rest2_price,
+            rest2Address: rest2_address,
+            rest3Name: rest3_name,
+            rest3Ratings: rest3_ratings,
+            rest3Price: rest3_price,
+            rest3Address: rest3_address,
+            rest4Name: rest4_name,
+            rest4Ratings: rest4_ratings,
+            rest4Price: rest4_price,
+            rest4Address: rest4_address,
+            rest5Name: rest5_name,
+            rest5Ratings: rest5_ratings,
+            rest5Price:  rest5_price , 
+            rest5Address: rest5_address,
+            img1 : image1, 
+            img2 : image2, 
+            img3 : image3, 
+            img4 : image4, 
+            img5 : image5, 
+            img6 : image6, 
+            img7 : image7,
+           img8 : image8        })
+        
+    } catch (error) {
+        res.status(404);
+        res.render("error.ejs")        
+        
+    } 
+})
+
+
+
+app.listen(port, () => 
+{
+    console.log(`Server running on localhost:${port}`);
+})

@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Travel Buddy-An API Project</title>
+</head>
+<body>
+    <form action="/" method = "GET"><br>
+       <center><title id = "top">Your Travel Buddy</title></center>
+    </form>
+
+
+
+    <form action="/submit" method = "POST">
+        <input type="text" name = "city_name" placeholder = "City Name"><br/>
+        <input type="text" name = "country_code" placeholder = "Country Code">
+        <select name="Items" id="abc">
+            <option value="day1" name = "day1">Today</option>
+            <option value="day2" name = "day2">Tommorow</option>
+            <option value="day3" name = "day3">After a day</option>
+            <option value="day4" name = "day4">After 2 days</option>
+            <option value="day5" name = "day5">After 3 days</option>
+            <option value="day6" name = "day6">After 4 days</option>
+            <option value="day7" name = "day7">After 5 days</option>
+        </select>
+         <button type = "submit" >Submit</button>
+
+                  <button type = "submit" >Submit</button>
+
+
+        <p>location name: <%= locals.cityName %>, <%= locals.countryCode %></p>
+        <p>Coordinates: latitude = <%= locals.lat %>, Longitude = <%= locals.lon %></p>
+        <p>Weather at <%= locals.cityName %> 
+
+            :
+
+            <ul>
+                How's weather at <%= locals.cityName %>, <%= locals.countryCode%>
+                <li>Description: <%= locals.descr %></li>
+                <li>Temperature: <%= locals.temp %>&deg;C</li>
+                <li>Minimum/Maximum Temperature: <%= locals.minTemp  %>/<%= locals.maxTemp  %>&deg;C</li>
+                <li>Humidity: <%= locals.humidityValue %>%</li>
+                <li>Wind Speed and Direction: <%= locals.windSpeed %> km/h in <%= locals.windDirection %> direction</li>
+                <li>Clouds(in %): <%= locals.cloudCoverage  %> %</li>
+                <li>Snow(accumulation): <%= locals.snowAccumulation %>mm</li>
+                <li>Visibility: <%= locals.visibilityValue %> KM</li>
+                <li>UV Index:<%= locals.UVIndex %></li>
+            </ul>
+        
+        </p>
+
+    </form>
+
+
+        <section action = "/restaurants" method = "GET">
+
+         <title><p>5 Best restaurants nearby: </p></title>
+        <ol>
+            <% if(locals.restaurants = true) %>
+
+            <li>Name: <%= locals.rest1Name %> <br> 
+                Address: <%= locals.rest1Address %>  <br>
+                Ratings: <%= locals.rest1Ratings %> <br>
+                Cost: <%= locals.rest1Price %> <br>
+            </li>
+            <li>Name: <%= locals.rest2Name %> <br> 
+                Address: <%= locals.rest2Address %>  <br>
+                Ratings:<%= locals.rest2Ratings %> <br>
+                Cost: <%= locals.rest2Price %> <br>
+            </li>
+            <li>Name: <%= locals.rest3Name %> <br> 
+                Address: <%= locals.rest3Name %>  <br>
+                Ratings:<%= locals.rest3Ratings %> <br>
+                Cost: <%= locals.rest3Price %> <br>
+            </li>
+            <li>Name: <%= locals.rest4Name %> <br> 
+                Address: <%= locals.rest4Name %>  <br>
+                Ratings:<%= locals.rest4Ratings %> <br>
+                Cost: <%= locals.rest4Price %> <br>
+            </li>
+            <li>Name: <%= locals.rest5Name %> <br> 
+                Address: <%= locals.rest5Name %>  <br>
+                Ratings:<%= locals.rest5Ratings %> <br>
+                Cost: <%= locals.rest5Price %> <br>
+            </li>
+
+
+        </ol>
+
+    </section>
+
+
+    <Section action = "/images" method = "GET">
+
+        <p>A glimpse of the location: </p>
+        <img src="<%= locals.img1 %>" alt="<%= locals.cityName %> images">
+        <img src="<%= locals.img2 %>" alt="<%= locals.cityName %> images">
+        <img src="<%= locals.img3 %>" alt="<%= locals.cityName %> images">
+        <img src="<%= locals.img4 %>" alt="<%= locals.cityName %> images">
+        <img src="<%= locals.img5 %>" alt="<%= locals.cityName %> images">
+        <img src="<%= locals.img6 %>" alt="<%= locals.cityName %> images">
+        <img src="<%= locals.img7 %>" alt="<%= locals.cityName %> images">
+        <img src="<%= locals.img8 %>" alt="<%= locals.cityName %> images">
+        <h6>Credit: pixabay and it's users</h6>
+
+         </Section>
+
+    <footer>Aryan Patel &copy; 2023</footer>
+
+    
+</body>
+</html>
